@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PickTime">
+
+    <TimePicker
+        android:id="@+id/tp_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/tp_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tp_picker"
+        android:layout_marginHorizontal="100dp"
+        android:onClick="back"
+        android:text="cancel" />
+
+    <Button
+        android:id="@+id/tp_enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tp_cancel"
+        android:layout_marginHorizontal="100dp"
+        android:onClick="enter"
+        android:text="enter" />
+
+
+
+</RelativeLayout>

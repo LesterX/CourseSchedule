@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1000"
+    android:orientation="vertical"
+    tools:context=".AddSession">
+
+
+    <TextView
+        android:id="@+id/as_text_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:text="Day"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/as_spinner_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/as_spinner_day"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/as_spinner_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="137dp"
+        android:layout_marginTop="97dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/as_text_sh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:layout_marginStart="15dp"
+        android:text="Start Hour"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/as_button_change_sh"
+        app:layout_constraintEnd_toStartOf="@+id/as_text_sh_value"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/as_text_eh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="End Hour"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/as_text_eh_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/as_button_change_sh" />
+
+    <Button
+        android:id="@+id/as_button_change_sh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:onClick="pick_sh"
+        android:text="Add time"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/as_text_eh_value"
+        app:layout_constraintStart_toEndOf="@+id/as_text_eh" />
+
+    <Button
+        android:id="@+id/as_button_change_eh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:onClick="pick_eh"
+        android:text="Add time"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/as_text_eh"
+        app:layout_constraintTop_toBottomOf="@+id/as_text_eh_value" />
+
+    <TextView
+        android:id="@+id/as_text_sh_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="5dp"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/as_button_change_sh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/as_text_sh" />
+
+    <TextView
+        android:id="@+id/as_text_eh_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="273dp"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/as_text_eh"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/as_button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginStart="9dp"
+        android:onClick="back"
+        android:text="@android:string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/as_button_enter"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/as_button_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="enter"
+        android:text="Enter"
+        app:layout_constraintBottom_toBottomOf="@+id/as_button_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/as_button_cancel"
+        app:layout_constraintTop_toTopOf="@+id/as_button_cancel" />
+</android.support.constraint.ConstraintLayout>
