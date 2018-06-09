@@ -1,12 +1,17 @@
 package com.example.xymtz.courseschedule;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,73 +33,84 @@ public class AddCourse extends AppCompatActivity {
         setContentView(R.layout.activity_add_course);
     }
 
-    public void add_session(View v){
-        Intent i = new Intent(this,AddSession.class);
-        startActivityForResult(i,1);
-    }
-
-    public void back(View v){
-        finish();
-    }
-
-    public void enter_course(View v){
-        EditText text_name = findViewById(R.id.et_add_course_name);
-        EditText text_location = findViewById(R.id.et_add_course_location);
-        if (text_name.getText().toString().equals("") ||
-                text_location.getText().toString().equals("")){
-            Toast.makeText(getApplicationContext(),
-                    "Please enter name and location",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        String name = text_name.getText().toString();
-        String location = text_location.getText().toString();
-
-        String course_data = name + "\n" + location + "\n";
-
-        ViewGroup layout = findViewById(R.id.ac_linear_session);
-        int num_session = layout.getChildCount();
-
-        if (num_session == 0){
-            Toast.makeText(getApplicationContext(),
-                    "Please enter at least one session",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        List<Session> sessions = new ArrayList<Session>();
-
-        for (int i = 0; i < num_session; i ++){
-            TextView text_session = (TextView) layout.getChildAt(i);
-            String[] texts = text_session.getText().toString().split("\n");
-            String day = texts[0];
-            String[] time = texts[1].split(" to ");
-            String sh = time[0];
-            String eh = time[1];
-            Session s = new Session(day,sh,eh);
-            sessions.add(s);
-            course_data = course_data + day + " " + sh + " " + eh + "\n";
-        }
-
-        CourseList.get_instance().add_course(new Course(name,location,sessions));
-
-        course_data = course_data + "---\n";
-
-        try{
-            FileOutputStream stream = openFileOutput("Courses.txt",MODE_APPEND);
-
-            try {
-                stream.write(course_data.getBytes());
-            } finally {
-                stream.close();
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.button_ac_cancel:{
+                finish();
+                break;
             }
-        }catch (IOException e){
-            System.out.println("***Error Message*** " + e.getMessage());
+            case R.id.button_ac_add_session:{
+                Intent i = new Intent(this,AddSession.class);
+                startActivityForResult(i,1);
+                break;
+            }
+            case R.id.button_ac_delete_session:{
+
+                break;
+            }
+            case R.id.button_ac_enter:{
+                EditText text_name = findViewById(R.id.et_add_course_name);
+                EditText text_location = findViewById(R.id.et_add_course_location);
+                if (text_name.getText().toString().equals("") ||
+                        text_location.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(),
+                            "Please enter name and location",
+                            Toast.LENGTH_SHORT).show();
+                    break;
+                }
+
+                String name = text_name.getText().toString();
+                String location = text_location.getText().toString();
+
+                String course_data = name + "\n" + location + "\n";
+
+                ViewGroup layout = findViewById(R.id.ac_linear_session);
+                int num_session = layout.getChildCount();
+
+                if (num_session == 0){
+                    Toast.makeText(getApplicationContext(),
+                            "Please enter at least one session",
+                            Toast.LENGTH_SHORT).show();
+                    break;
+                }
+
+                List<Session> sessions = new ArrayList<Session>();
+
+                for (int i = 0; i < num_session; i ++){
+                    TextView text_session = (TextView) layout.getChildAt(i);
+                    String[] texts = text_session.getText().toString().split("\n");
+                    String day = texts[0];
+                    String[] time = texts[1].split(" to ");
+                    String sh = time[0];
+                    String eh = time[1];
+                    Session s = new Session(day,sh,eh);
+                    sessions.add(s);
+                    course_data = course_data + day + " " + sh + " " + eh + "\n";
+                }
+
+                CourseList.get_instance().add_course(new Course(name,location,sessions));
+
+                course_data = course_data + "---\n";
+
+                try{
+                    FileOutputStream stream = openFileOutput("Courses.txt",MODE_APPEND);
+
+                    try {
+                        stream.write(course_data.getBytes());
+                    } finally {
+                        stream.close();
+                    }
+                }catch (IOException e){
+                    System.out.println("***Error Message*** " + e.getMessage());
+                }
+
+                Toast.makeText(getApplicationContext(),
+                        "Course Added", Toast.LENGTH_SHORT).show();
+
+                finish();
+                break;
+            }
         }
-
-        Toast.makeText(getApplicationContext(),
-                "Course Added", Toast.LENGTH_SHORT).show();
-
-        finish();
     }
 
     protected void onActivityResult(int request_code, int result_code, Intent data) {
@@ -111,6 +127,30 @@ public class AddCourse extends AppCompatActivity {
                 text.setText(string_session);
                 text.setTextColor(Color.BLACK);
                 text.setTextSize(18);
+                text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final View sess = v;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddCourse.this);
+                        builder.setTitle("Delete Session")
+                                .setMessage("Do you want to remove this session?")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
+                                        ((ViewGroup) sess.getParent()).removeView(sess);
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
+                                    }
+                                })
+                                .show();
+                    }
+                });
+
                 layout.addView(text);
             }
         }
