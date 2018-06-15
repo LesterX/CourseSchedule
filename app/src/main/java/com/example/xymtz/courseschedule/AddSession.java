@@ -20,8 +20,8 @@ public class AddSession extends AppCompatActivity {
 
 
         String[] days = new String[]{
-                "Monday","Tuesday","Wednesday","Thursday",
-                "Friday","Saturday","Sunday"
+                getString(R.string.monday),getString(R.string.tuesday),getString(R.string.wednesday),getString(R.string.thursday),
+                getString(R.string.friday),getString(R.string.saturday),getString(R.string.sunday)
         };
 
         Spinner day = findViewById(R.id.as_spinner_day);
@@ -47,7 +47,7 @@ public class AddSession extends AppCompatActivity {
 
         if (sh == null || eh == null || sh.length() < 1 || eh.length() < 1) {
             Toast.makeText(getApplicationContext(),
-                    "Time cannot be empty",
+                    R.string.enter_time,
                     Toast.LENGTH_SHORT).show();
         }else {
 
@@ -80,7 +80,7 @@ public class AddSession extends AppCompatActivity {
                 sh_value.setText(time);
                 sh_value.setVisibility(View.VISIBLE);
                 Button change = findViewById(R.id.as_button_change_sh);
-                change.setText("CHANGE");
+                change.setText(R.string.change);
             }
         }else if (request_code == 2) {
             if (result_code == Activity.RESULT_OK){
@@ -91,7 +91,7 @@ public class AddSession extends AppCompatActivity {
                 eh_value.setText(time);
                 eh_value.setVisibility(View.VISIBLE);
                 Button change = findViewById(R.id.as_button_change_eh);
-                change.setText("CHANGE");
+                change.setText(R.string.change);
             }
         }
     }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">课程表</string>
+    <string name="add_session">增加时段</string>
+    <string name="course_name">课程名</string>
+    <string name="enter">输入</string>
+    <string name="cancel">取消</string>
+    <string name="location">地点</string>
+    <string name="day">星期</string>
+    <string name="start_hour">开始时间</string>
+    <string name="end_hour">结束时间</string>
+    <string name="add_time">添加时间</string>
+    <string name="display">显示</string>
+    <string name="add">添加</string>
+    <string name="delete">删除</string>
+    <string name="enter_name_location">请输入课程名和地点</string>
+    <string name="enter_session">请输入至少一个时段</string>
+    <string name="to">" 至 "</string>
+    <string name="course_added">时段添加成功</string>
+    <string name="delete_session">时段删除成功</string>
+    <string name="want_deleteSession">你想要删除这个时段吗</string>
+    <string name="positive">是</string>
+    <string name="monday">星期一</string>
+    <string name="tuesday">星期二</string>
+    <string name="wednesday">星期三</string>
+    <string name="thursday">星期四</string>
+    <string name="friday">星期五</string>
+    <string name="saturday">星期六</string>
+    <string name="sunday">星期日</string>
+    <string name="enter_time">时间不可为空</string>
+    <string name="delete_course">删除课程</string>
+    <string name="wantDeleteCourse">你想要删除这个课程吗</string>
+    <string name="course_deleted">课程删除成功</string>
+    <string name="change">更改</string>
+</resources>

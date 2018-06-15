@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:text="Course Name"
+        android:text="@string/course_name"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/et_add_course_name"
         app:layout_constraintStart_toStartOf="parent" />
@@ -35,7 +35,7 @@
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="76dp"
         android:onClick="onClick"
-        android:text="Enter"
+        android:text="@string/enter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -46,7 +46,7 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="9dp"
         android:onClick="onClick"
-        android:text="Cancel"
+        android:text="@string/cancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scroll_ac_scroll_session" />
 
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
-        android:text="Location"
+        android:text="@string/location"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/text_add_course_name"
         app:layout_constraintTop_toBottomOf="@+id/text_add_course_name" />
@@ -79,7 +79,7 @@
         android:layout_marginBottom="60dp"
         android:layout_marginTop="188dp"
         android:onClick="onClick"
-        android:text="add session"
+        android:text="@string/add_session"
         app:layout_constraintBottom_toTopOf="@+id/scroll_ac_scroll_session"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

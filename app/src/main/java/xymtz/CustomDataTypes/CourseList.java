@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.xymtz.courseschedule.R;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class CourseList {
@@ -27,11 +28,35 @@ public class CourseList {
     }
 
     public void add_course(Course c){
-        courses.add(c);
+        if (!duplicate(c))
+            courses.add(c);
+    }
+
+    private boolean duplicate(Course c){
+        Iterator<Course> iter = courses.iterator();
+        while (iter.hasNext()){
+            Course course = iter.next();
+            if (course.get_name().equals(c.get_name())){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void remove_course(Course c){
         courses.remove(c);
+    }
+
+    public void remove_course(String name){
+        Iterator<Course> iter = courses.iterator();
+        while (iter.hasNext()){
+            Course c = iter.next();
+            String a = c.get_name();
+            String b = name;
+            if (a.replaceAll("\\s+","").equalsIgnoreCase(b.replaceAll("\\s+",""))){
+                iter.remove();
+            }
+        }
     }
 
     public void print_all(){

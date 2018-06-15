@@ -27,7 +27,6 @@ public class Display extends AppCompatActivity {
 
         for (LinearLayout l : views){
             TextView t = (TextView)l.getChildAt(0);
-            //System.out.println("***Debug***\n" + t.getText().toString());
             layout.addView(l);
         }
     }

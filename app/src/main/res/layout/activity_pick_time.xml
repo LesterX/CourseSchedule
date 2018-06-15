@@ -18,7 +18,7 @@
         android:layout_below="@+id/tp_picker"
         android:layout_marginHorizontal="100dp"
         android:onClick="back"
-        android:text="cancel" />
+        android:text="@string/cancel" />
 
     <Button
         android:id="@+id/tp_enter"
@@ -27,8 +27,6 @@
         android:layout_below="@+id/tp_cancel"
         android:layout_marginHorizontal="100dp"
         android:onClick="enter"
-        android:text="enter" />
-
-
+        android:text="@string/enter" />
 
 </RelativeLayout>

@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">Course Schedule</string>
+    <string name="add_session">Add Session</string>
+    <string name="course_name">Course Name</string>
+    <string name="enter">Enter</string>
+    <string name="cancel">Cancel</string>
+    <string name="location">Location</string>
+    <string name="day">Day</string>
+    <string name="start_hour">Start Hour</string>
+    <string name="end_hour">End Hour</string>
+    <string name="add_time">Add time</string>
+    <string name="display">DISPLAY</string>
+    <string name="add">ADD</string>
+    <string name="delete">DELETE</string>
+    <string name="enter_name_location">Please enter name and location</string>
+    <string name="enter_session">Please enter at least one session</string>
+    <string name="to"> to </string>
+    <string name="course_added">Course Added</string>
+    <string name="delete_session">Delete Session</string>
+    <string name="want_deleteSession">Do you want to remove this session?</string>
+    <string name="positive">Yes</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="enter_time">Time cannot be empty</string>
+    <string name="delete_course">Delete Course</string>
+    <string name="wantDeleteCourse">Do you want to delete this course?</string>
+    <string name="course_deleted">Course Deleted</string>
+    <string name="change">CHANGE</string>
 </resources>

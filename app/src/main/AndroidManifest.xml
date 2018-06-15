@@ -19,7 +19,8 @@
         <activity android:name=".AddCourse" />
         <activity android:name=".AddSession" />
         <activity android:name=".PickTime" />
-        <activity android:name=".Display"></activity>
+        <activity android:name=".Display" />
+        <activity android:name=".DeleteCourse"></activity>
     </application>
 
 </manifest>

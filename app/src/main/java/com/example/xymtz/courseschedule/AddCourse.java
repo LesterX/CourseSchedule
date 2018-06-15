@@ -44,17 +44,13 @@ public class AddCourse extends AppCompatActivity {
                 startActivityForResult(i,1);
                 break;
             }
-            case R.id.button_ac_delete_session:{
-
-                break;
-            }
             case R.id.button_ac_enter:{
                 EditText text_name = findViewById(R.id.et_add_course_name);
                 EditText text_location = findViewById(R.id.et_add_course_location);
                 if (text_name.getText().toString().equals("") ||
                         text_location.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(),
-                            "Please enter name and location",
+                            R.string.enter_name_location,
                             Toast.LENGTH_SHORT).show();
                     break;
                 }
@@ -69,7 +65,7 @@ public class AddCourse extends AppCompatActivity {
 
                 if (num_session == 0){
                     Toast.makeText(getApplicationContext(),
-                            "Please enter at least one session",
+                            R.string.enter_session,
                             Toast.LENGTH_SHORT).show();
                     break;
                 }
@@ -80,7 +76,7 @@ public class AddCourse extends AppCompatActivity {
                     TextView text_session = (TextView) layout.getChildAt(i);
                     String[] texts = text_session.getText().toString().split("\n");
                     String day = texts[0];
-                    String[] time = texts[1].split(" to ");
+                    String[] time = texts[1].split(getString(R.string.to));
                     String sh = time[0];
                     String eh = time[1];
                     Session s = new Session(day,sh,eh);
@@ -105,7 +101,7 @@ public class AddCourse extends AppCompatActivity {
                 }
 
                 Toast.makeText(getApplicationContext(),
-                        "Course Added", Toast.LENGTH_SHORT).show();
+                        R.string.course_added, Toast.LENGTH_SHORT).show();
 
                 finish();
                 break;
@@ -132,16 +128,16 @@ public class AddCourse extends AppCompatActivity {
                     public void onClick(View v) {
                         final View sess = v;
                         AlertDialog.Builder builder = new AlertDialog.Builder(AddCourse.this);
-                        builder.setTitle("Delete Session")
-                                .setMessage("Do you want to remove this session?")
-                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        builder.setTitle(R.string.delete_session)
+                                .setMessage(R.string.want_deleteSession)
+                                .setPositiveButton(R.string.positive, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog,
                                                         int which) {
                                         ((ViewGroup) sess.getParent()).removeView(sess);
                                     }
                                 })
-                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog,
                                                         int which) {
